@@ -1,5 +1,5 @@
 fn main(){
-    let b = "java";
+    let _b = "java";
     let mut a = 5;
     println!("hello world ! {{{}}}" , a);
     a = 95;
@@ -23,7 +23,5 @@ fn main(){
 fn fun(x: i32) -> i32{
     println!("javascript {}!" , { x * x + x / x - x});
     println!("{}{}10" , x ,{if x > 10 { "大于" } else {"不大于"}});
-    // x = 3;
-    // println!("{}{}10" , x ,{if x > 10 { "大于" } else {"不大于"}});
     return x;
 }

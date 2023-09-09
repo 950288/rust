@@ -3,3 +3,5 @@ greeting/src/main
 start
 start.exe
 greeting/target/
+
+*.exe

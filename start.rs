@@ -1,3 +1,5 @@
+// run rustc .\start.rs | .\start.exe
+
 fn main(){
     let _b = "java";
     let mut a = 5;
@@ -18,6 +20,28 @@ fn main(){
         if a > 10 { break a};
     };
     println!("{}" , lop);
+
+    // 格式化输出
+    println!("Hello");                 // => "Hello"
+    println!("Hello, {}!", "world");   // => "Hello, world!"
+    println!("The number is {}", 1);   // => "The number is 1"
+    println!("{:?}", (3, 4));          // => "(3, 4)"
+    println!("{value}", value=4);      // => "4"
+    println!("{} {}", 1, 2);           // => "1 2"
+    println!("{:04}", 42);             // => "0042" with leading zeros
+
+    eprintln!("Error: Could not complete task");
+
+    #[derive(Debug)]
+    struct Person {
+        name: String,
+        age: u8
+    }
+
+    println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
+
+    println!("{:?}", Person{name: "sunface".to_string(), age: 18});
+
 }
 
 fn fun(x: i32) -> i32{

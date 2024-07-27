@@ -1,7 +1,7 @@
 
-greeting/src/main
 start
-start.exe
 greeting/target/
-
+greeting/src/main
+pdb2seq/target/
+pdb2seq/src/main
 *.exe

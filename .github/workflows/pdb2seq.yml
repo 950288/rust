@@ -22,9 +22,27 @@ jobs:
         sudo apt install mingw-w64
         rustup target add x86_64-pc-windows-gnu
       
-    - name: Build
+    - name: Build for Windows
       run: |
         cd pdb2seq
         cargo build --target=x86_64-pc-windows-gnu --release
+
+    - name: Upload Windows zip
+      uses: actions/upload-artifact@v3    
+      with:
+        name: pdb2seq for windows
+        path: ./release/pdb2seq.exe
+
+    - name: Build for Linux
+      run: |
+        cd pdb2seq
+        cargo build --release
+
+    - name: Upload Windows zip
+      uses: actions/upload-artifact@v3    
+      with:
+        name: pdb2seq for Linux
+        path: ./release/pdb2seq
+      
 
     

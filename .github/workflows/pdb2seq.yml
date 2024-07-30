@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v3    
       with:
         name: pdb2seq for windows
-        path: ./release/pdb2seq.exe
+        path: ./pdb2seq/release/pdb2seq.exe
 
     - name: Build for Linux
       run: |
@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v3    
       with:
         name: pdb2seq for Linux
-        path: ./release/pdb2seq
+        path: ./pdb2seq/release/pdb2seq
       
 
     

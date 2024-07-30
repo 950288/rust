@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: install compiler
-      run: rustup target add x86_64-pc-windows-gnu
+      run: |
+        apt install mingw-w64
+        rustup target add x86_64-pc-windows-gnu
       
     - name: Build
       run: |

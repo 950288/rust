@@ -3,19 +3,16 @@ use std::env;
 
 fn main() {
 
-    let mut pdb_file = None;
-
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         println!("Usage: pdb2seq.exe <pdb_file>");
         return;
     } else {
         println!("Reading PDB file: {}", args[1]);
-        pdb_file = Some(&args[1]);
     }
 
     let (pdb, _errors) = pdbtbx::open(
-        pdb_file.unwrap(),
+        &args[1],
         StrictnessLevel::Medium
     ).unwrap();
 
@@ -30,7 +27,8 @@ fn chain2seq(chain: &Chain) -> String {
     
     let residues = chain.residues();
 
-    let mut seq: Vec<&str> = Vec::new();
+    // let mut seq: Vec<&str> = Vec::new();
+    let mut seq = String::new();
 
     let aa_map = [
         ("ALA", "A"), ("CYS", "C"), ("ASP", "D"), ("GLU", "E"), ("PHE", "F"),
@@ -42,16 +40,10 @@ fn chain2seq(chain: &Chain) -> String {
     for residue in residues {
         if let Some(three_letter_code) = residue.name() {
             if let Some(one_letter_code) = aa_map.get(three_letter_code) {
-                seq.push(one_letter_code);
+                seq.push((one_letter_code).chars().next().unwrap());
             }
         }
     }
 
-    let mut seq_str = String::new();
-
-    for aa in seq {
-        seq_str.push_str(aa);
-    }
-
-    return seq_str;
+    return seq;
 }

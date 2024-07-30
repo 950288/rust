@@ -26,13 +26,13 @@ jobs:
       run: |
         cd pdb2seq
         cargo build --target=x86_64-pc-windows-gnu --release
-        ls target/x86_64-pc-windows-gnu
+        ls target/x86_64-pc-windows-gnu/release
         
     - name: Upload Windows zip
       uses: actions/upload-artifact@v3    
       with:
         name: pdb2seq for windows
-        path: ./pdb2seq/target/x86_64-pc-windows-gnu/pdb2seq.exe
+        path: ./pdb2seq/target/x86_64-pc-windows-gnu/release/pdb2seq.exe
 
     - name: Build for Linux
       run: |

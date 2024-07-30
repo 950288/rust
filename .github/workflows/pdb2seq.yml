@@ -28,6 +28,7 @@ jobs:
         cargo build --target=x86_64-pc-windows-gnu --release
         ls
         ls target
+        ls target/release
 
     - name: Upload Windows zip
       uses: actions/upload-artifact@v3    
